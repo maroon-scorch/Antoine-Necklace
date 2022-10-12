@@ -152,15 +152,17 @@ if __name__ == "__main__":
                 radius=1/4*torus.radius, thickness=1/20*torus.thickness, color=vector(1, 0, 0))
             else:
         # Odd position
-                current_torus = ring(canvas=recursive,
-                pos=pos_list[i],
-                radius=1/4*torus.radius, thickness=1/20*torus.thickness, color=vector(0, 0, 1))
-                vec_1 = pos_list[i-1];
-                vec_2 = pos_list[i];
+                vec_1 = pos_list[i-1] - torus.pos;
+                vec_2 = pos_list[i] - torus.pos;
                 
                 edge = vec_2 - vec_1;
                 result = vec_1 + 0.5*edge;
-                current_torus.axis = result
+                
+                current_torus = ring(canvas=recursive,
+                pos=pos_list[i],
+                axis = result,
+                radius=1/4*torus.radius, thickness=1/20*torus.thickness, color=vector(0, 0, 1))
+
     
     # necklace.axis = vector(1.95106, 0.309017, 0);
     # necklace.axis = vector(0, 1.95106, 0.309017) 
