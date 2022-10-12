@@ -1,14 +1,14 @@
 # Antoine's Necklace
 
-Wait, what ... exactly is an Antoine's Necklace?
+A visualization of [Antoine's Necklace](https://www.math.brown.edu/reschwar/M2410B/hw1.pdf) for Professor Richard Schwartz's **MATH 2410: Topology** class (Fall 2022 Semester) in [VPython](https://vpython.org/).
 ## How to Run
 To see the initial setup:
 ```
-python initial.py
+python code/initial.py
 ```
 To see the first iteration of Antoine's Necklace:
 ```
-python one_step.py
+python code/one_step.py
 ```
 To see the n-th iteration of Antoine's Necklace:
 ```

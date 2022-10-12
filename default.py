@@ -3,6 +3,7 @@ import numpy as np
 import math, sys
 
 # Displays the n-th iteration of Antoine's Necklace - T_n specified in the Assignment
+# This file has the default original set up of parameters that worked in the program
 
 # K should probably be an even number
 K = 20
