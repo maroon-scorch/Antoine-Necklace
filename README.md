@@ -2,7 +2,11 @@
 
 A visualization of [Antoine's Necklace](https://www.math.brown.edu/reschwar/M2410B/hw1.pdf) for Professor Richard Schwartz's **MATH 2410: Topology** class (Fall 2022 Semester) in [VPython](https://vpython.org/).
 ## How to Run
-To see the initial setup:
+To install dependencies:
+```
+pip install -r requirements.txt
+```
+To see the initial stage:
 ```
 python code/initial.py
 ```
