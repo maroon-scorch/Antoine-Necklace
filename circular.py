@@ -2,7 +2,7 @@ from vpython import *
 import numpy as np
 import math
 
-# Displays the n-th iteration of Antoine's Necklace - T_n specified in the Assignment
+# Displays the circular version of Antoine's Necklace's initial setup
 
 # K should probably be an even number
 K = 20
@@ -11,7 +11,7 @@ radius = 2*c
 thickness = 0.5*c
 iter = 1
 
-recursive = canvas(title="""<h1>Antoine's Necklace - Recursive Steps</h1>""",
+recursive = canvas(title="""<h1>Antoine's Necklace - Circular Loops of Initial Step</h1>""",
         width=1000, height=1000,
         center=vector(0,0,0))
 
@@ -77,10 +77,11 @@ def radial_poistion_extend(center, normal, r):
         vec = np.array([[x_pos, y_pos, 0]])
         transformed_vec = np.matmul(matrix, np.transpose(vec))
         result_vec = center + vector(transformed_vec[0][0], transformed_vec[1][0], transformed_vec[2][0])
-        # sphere(pos=result_vec, radius=0.1)
-        result.append(result_vec)
+        sphere(pos=result_vec,
+                radius=0.1)
+        result.append(result)
     
-    return result
+    
     # return vector(x_pos, y_pos, 0)
 
 def perpendicular(index, center, r):
@@ -142,25 +143,21 @@ if __name__ == "__main__":
     # necklace = compound(tori_list); 
     for torus in tori_list:
         torus.visible = False
-        pos_list = radial_poistion_extend(torus.pos, torus.axis, torus.radius)        
-        for i in range(0, K):
-            if i % 2 == 0:
-            # Even position
-                current_torus = ring(canvas=recursive,
-                pos=pos_list[i],
-                axis=torus.axis,
-                radius=1/4*torus.radius, thickness=1/20*torus.thickness, color=vector(1, 0, 0))
-            else:
-        # Odd position
-                current_torus = ring(canvas=recursive,
-                pos=pos_list[i],
-                radius=1/4*torus.radius, thickness=1/20*torus.thickness, color=vector(0, 0, 1))
-                vec_1 = pos_list[i-1];
-                vec_2 = pos_list[i];
+        radial_poistion_extend(torus.pos, torus.axis, torus.radius)        
+        # for i in range(0, K):
+        #     if i % 2 == 0:
+        #     # Even position
+        #         current_torus = ring(canvas=recursive,
+        #         pos=torus.pos + radial_poistion(i, torus.radius),
+        #         axis=torus.axis,
+        #         radius=1/4*torus.radius, thickness=1/20*torus.thickness, color=vector(1, 0, 0))
+        #     else:
+        # # Odd position
+        #         current_torus = ring(canvas=recursive,
+        #         pos=torus.pos + radial_poistion(i, torus.radius),
+        #         radius=1/4*torus.radius, thickness=1/20*torus.thickness, color=vector(0, 0, 1))
                 
-                edge = vec_2 - vec_1;
-                result = vec_1 + 0.5*edge;
-                current_torus.axis = result
+        #         current_torus.axis = perpendicular(i, current_torus.pos, torus.radius)
     
     # necklace.axis = vector(1.95106, 0.309017, 0);
     # necklace.axis = vector(0, 1.95106, 0.309017) 

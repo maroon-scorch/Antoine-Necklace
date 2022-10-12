@@ -2,7 +2,7 @@ from vpython import *
 import numpy as np
 import math
 
-# Displays the n-th iteration of Antoine's Necklace - T_n specified in the Assignment
+# Displays the 1st iteration of Antoine's Necklace - T_1 specified in the Assignment
 
 # K should probably be an even number
 K = 20
@@ -11,7 +11,7 @@ radius = 2*c
 thickness = 0.5*c
 iter = 1
 
-recursive = canvas(title="""<h1>Antoine's Necklace - Recursive Steps</h1>""",
+recursive = canvas(title="""<h1>Antoine's Necklace - One Step Recursion</h1>""",
         width=1000, height=1000,
         center=vector(0,0,0))
 
