@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Python solver
-python main.py
+python main.py $1

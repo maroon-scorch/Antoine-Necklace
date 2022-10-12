@@ -120,21 +120,6 @@ def init(n):
             
     return tori_list
 
-def recursive_steps(torus_list, iter):
-    if iter > 0:
-        necklace = compound(torus_list);
-        for torus in tori_list:
-            current_necklace = necklace.clone(pos = torus.pos,
-                                              axis = torus.axis,
-                                              radius = torus.radius
-                                              ,thickness=torus.thickness)
-        iter = iter - 1;
-        result = [];
-        recursive_steps(result, iter);
-        
-    print("Exiting the recursion!")
-
-
 # The main body of the code:
 if __name__ == "__main__":
     tori_list = init(K);

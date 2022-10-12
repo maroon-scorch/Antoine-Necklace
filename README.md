@@ -6,9 +6,13 @@ To see the initial setup:
 ```
 python initial.py
 ```
+To see the first iteration of Antoine's Necklace:
+```
+python one_step.py
+```
 To see the n-th iteration of Antoine's Necklace:
 ```
-./run.sh
+./run.sh <number of iterations>
 ```
 
 ## Visualization
@@ -18,6 +22,9 @@ The initial setup of the Necklace, this is the original chain of tori:
 
 The 1st iteration of Antoine's Necklace:
 ![alt text](figures/one.png)
+
+The 2nd iteration of Antoine's Necklace:
+![alt text](figures/two.png)
 
 The n-th iteration of Antoine's Necklace (iter = 2 in Figure):
 
