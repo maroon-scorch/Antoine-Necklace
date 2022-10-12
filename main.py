@@ -11,7 +11,7 @@ radius = 2*c
 thickness = 0.5*c
 # The scales for changing radius and thickness of the torus
 scale_r = 1/4
-scale_t = 1/20
+scale_t = 1/10
 
 def radial_poistion(index, r):
     radian = 2*math.pi*index/K
