@@ -1,5 +1,6 @@
 # Antoine's Necklace
 
+Wait, what ... exactly is an Antoine's Necklace?
 ## How to Run
 To see the initial setup:
 ```
@@ -12,7 +13,7 @@ To see the n-th iteration of Antoine's Necklace:
 
 ## Visualization
 
-The initial setup of the Necklace:
+The initial setup of the Necklace, this is the original chain of tori:
 ![alt text](figures/initial.png)
 
 The n-th iteration of Antoine's Necklace (iter = 2 in Figure):
