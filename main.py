@@ -11,7 +11,7 @@ radius = 2*c
 thickness = 0.5*c
 # The scales for changing radius and thickness of the torus
 scale_r = 1/4
-scale_t = 1/10
+scale_t = 1/18
 
 def radial_poistion(index, r):
     radian = 2*math.pi*index/K
@@ -147,7 +147,10 @@ def recursive_steps(tori_list, iter):
         recursive_steps(new_list, iter - 1)
     else:    
         print("Exiting the recursion!")
-
+        
+def show_original_torus():
+    """The original torus that the necklace should be bounded in"""
+    ring(pos=vector(0, 0, 0), axis=vector(0, 0, 1), radius = radius, thickness = 2*thickness, color=color.black, opacity=0.2)
 
 # The main body of the code:
 if __name__ == "__main__":
@@ -159,3 +162,6 @@ if __name__ == "__main__":
     
     tori_list = init(K);
     recursive_steps(tori_list, iter);
+    
+    # Uncomment to Show Torus
+    # show_original_torus();

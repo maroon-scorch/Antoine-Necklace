@@ -30,8 +30,8 @@ The 1st iteration of Antoine's Necklace:
 The 2nd iteration of Antoine's Necklace:
 ![alt text](figures/two.png)
 
-The n-th iteration of Antoine's Necklace (iter = 2 in Figure):
-
+With a Torus:
+![alt text](figures/torus.png)
 
 ## Known Bugs
 
