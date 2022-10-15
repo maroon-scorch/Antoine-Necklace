@@ -21,16 +21,13 @@ To see the n-th iteration of Antoine's Necklace:
 
 ## Visualization
 
-The initial setup of the Necklace, this is the original chain of tori:
+- The initial setup of the Necklace, this is the original chain of tori: <br />
 ![alt text](figures/initial.png)
-
-The 1st iteration of Antoine's Necklace:
+- The 1st iteration of Antoine's Necklace: <br />
 ![alt text](figures/one.png)
-
-The 2nd iteration of Antoine's Necklace:
+- The 2nd iteration of Antoine's Necklace: <br />
 ![alt text](figures/two.png)
-
-With a Torus:
+- With a Torus: <br />
 ![alt text](figures/torus.png)
 
 ## Known Bugs
