@@ -5,14 +5,15 @@ import math, sys
 # Displays the n-th iteration of Antoine's Necklace - T_n specified in the Assignment
 
 # K should probably be an even number
-K = 20
+K = 16
 c = 5
 radius = 2.0*c
 thickness = 0.5*c
 # The scales for changing radius and thickness of the torus
-scale_r = 1/5
+scale_r = 1/6
 scale_t = scale_r
 # scale_t = 1/18
+t_list = []
 
 def radial_poistion(index, r):
     radian = 2*math.pi*index/K
@@ -119,50 +120,36 @@ def init(n):
             
     return tori_list
 
-def recursive_steps(tori_list, iter):
-    if iter > 0:
-        new_list = []
-        for torus in tori_list:
-            torus.visible = False
-            pos_list = radial_poistion_extend(torus.pos, torus.axis, torus.radius)        
-            for i in range(0, K):
-                if i % 2 == 0:
-                # Even position
-                    current_torus = ring(
-                    pos=pos_list[i],
-                    axis=torus.axis,
-                    radius=scale_r*torus.radius, thickness=scale_t*torus.thickness, color=vector(1, 0, 0))
-                else:
-            # Odd position
-                    vec_1 = pos_list[i-1] - torus.pos;
-                    vec_2 = pos_list[i] - torus.pos;
-                    
-                    edge = vec_2 - vec_1;
-                    result = vec_1 + 0.5*edge;
-                    
-                    current_torus = ring(
-                    pos=pos_list[i],
-                    axis = result,
-                    radius=scale_r*torus.radius, thickness=scale_t*torus.thickness, color=vector(0, 0, 1))
-                new_list.append(current_torus)
-        recursive_steps(new_list, iter - 1)
-    else:    
-        print("Exiting the recursion!")
-        
-def show_original_torus():
-    """The original torus that the necklace should be bounded in"""
-    ring(pos=vector(0, 0, 0), axis=vector(0, 0, 1), radius = radius, thickness = thickness, color=color.black, opacity=0.2)
+def change_radius(s):
+    global radius
+    radius = s.number
+
+def change_thickness(s):
+    global thickness
+    thickness = s.number
 
 # The main body of the code:
 if __name__ == "__main__":
-    iter = int(sys.argv[1])
-    recursive = canvas(title=f"<h1>Antoine's Necklace - Recursive Steps (Iter = {iter})</h1>",
+    recursive = canvas(title=f"<h1>Antoine's Necklace - Initial Setup:</h1>",
         width=1000, height=1000,
         center=vector(0,0,0),
         background=color.white)
     
-    tori_list = init(K);
-    recursive_steps(tori_list, iter);
+    t_list = init(K)
+    original = ring(pos=vector(0, 0, 0), axis=vector(0, 0, 1), radius = radius, thickness = thickness, color=color.black, opacity=0.2)
+    # button( bind=click, text='Show Setup' )
+    # scene.append_to_caption('\n\n')
+    wtext(text='Radius: ')
+    winput( bind=change_radius, type='numeric')
+    scene.append_to_caption('\n\n')
+    wtext(text='Thickness: ')
+    winput( bind=change_thickness, type='numeric')
+    scene.append_to_caption('\n\n')
     
-    # Uncomment to Show Torus
-    show_original_torus();
+    def click(b):
+        for torus in t_list:
+            torus.radius = scale_r*radius
+            torus.thickness = scale_t*thickness
+        original.radius = radius
+        original.thickness = thickness
+    button(bind=click, text='Change Torus') 
